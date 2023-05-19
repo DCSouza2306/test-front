@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export function Button({ children, color, background, width, transform, border }) {
+export function Button({ children, color, background, width, transform, border,disabled, onClick }) {
  return (
   <ButtonStyle
    color={color}
@@ -8,6 +8,8 @@ export function Button({ children, color, background, width, transform, border }
    width={width}
    transform={transform}
    border={border}
+   disabled={disabled}
+   onClick={onClick}
   >
    {children}
   </ButtonStyle>
@@ -27,4 +29,8 @@ const ButtonStyle = styled.button`
  align-self: flex-end;
  font-weight: 700;
  cursor: pointer;
+ :disabled{
+    background-color: #777777;
+    cursor: initial;
+ }
 `;
