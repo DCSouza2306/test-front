@@ -1,8 +1,16 @@
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { SignUp } from "./pages/SignUp";
+import GlobalStyle from "./components/GlobalStyle";
+
 function App() {
   return (
-    <div className="App">
-      <h1>Titulo</h1>
-    </div>
+    <BrowserRouter>
+    <GlobalStyle />
+    <Routes>
+      <Route path="/" element={<SignUp />} />
+      <Route path="/main" element={<></>} />
+    </Routes>
+    </BrowserRouter>
   );
 }
 
