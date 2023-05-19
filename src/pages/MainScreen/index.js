@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { Header } from "../../components/Header";
 import { CreatePost } from "../../components/CreatePost";
+import { Post } from "../../components/Post";
 
 export function Main(){
     return(
@@ -8,6 +9,7 @@ export function Main(){
             <MainBox>
                 <Header />
                 <CreatePost />
+                <Post />
             </MainBox>
         </MainSection>
     )
