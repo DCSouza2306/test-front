@@ -20,7 +20,6 @@ height: 100vh;
 `
 
 const ModalDiv = styled.div`
- font-family: "Roboto", sans-serif;
  border-radius: 16px;
  border: 1px solid #cccccc;
  position: fixed;
@@ -34,11 +33,5 @@ const ModalDiv = styled.div`
  h2 {
   font-weight: 700;
  }
- textarea:focus,
- input:focus,
- select:focus {
-  box-shadow: 0 0 0 0;
-  border: 0 none;
-  outline: 0;
- }
+ 
 `;

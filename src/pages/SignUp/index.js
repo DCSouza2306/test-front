@@ -1,7 +1,7 @@
 import { Modal } from "../../components/Modal";
 import styled from "styled-components";
-import { InputSignUp } from "../../components/InputSignUp";
-import { Button } from "../../components/ButtonModal";
+import { InputLabel } from "../../components/InputLabel";
+import { Button } from "../../components/Button";
 import { Title } from "../../components/TitleModal";
 
 export function SignUp() {
@@ -9,10 +9,10 @@ export function SignUp() {
   <SignUpSec>
    <Modal isOpen={true}>
     <Title>Welcome to CodeLeap network!</Title>
-    <InputSignUp>
-     <label>Please enter your username</label>
-     <input></input>
-    </InputSignUp>
+    <InputLabel height={"32px"}>
+     <label htmlFor="User" >Please enter your username</label>
+     <input id="User"/>
+    </InputLabel>
     <Button 
     color={"#FFFFFF"}
     width={"111px"}

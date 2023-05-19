@@ -26,4 +26,5 @@ const ButtonStyle = styled.button`
  border-radius: 8px;
  align-self: flex-end;
  font-weight: 700;
+ cursor: pointer;
 `;
