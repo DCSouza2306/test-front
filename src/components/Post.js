@@ -2,23 +2,19 @@ import styled from "styled-components";
 import { HeaderPost } from "./HeaderPost";
 import { ContentPost } from "./ContentPost";
 
-export function Post() {
+export function Post({ title, user, date, content }) {
+ 
  return (
   <PostDiv>
-   <HeaderPost>
-    <p>My First Post at CodeLeap Network!</p>
+   <HeaderPost user={user}>
+    <p>{title}</p>
    </HeaderPost>
    <ContentPost>
     <NameTime>
-     <p className="name">@Victor</p>
-     <p>25 minutes ago</p>
+     <p className="name">@{user}</p>
+     <p>{date}</p>
     </NameTime>
-    <Content>
-     Curabitur suscipit suscipit tellus. Phasellus consectetuer vestibulum elit.
-     Pellentesque habitant morbi tristique senectus et netus et malesuada fames
-     ac turpis egestas. Maecenas egestas arcu quis ligula mattis placerat. Duis
-     vel nibh at velit scelerisque suscipit.
-    </Content>
+    <Content>{content}</Content>
    </ContentPost>
   </PostDiv>
  );
@@ -32,6 +28,7 @@ const PostDiv = styled.div`
 const Content = styled.p`
  margin-top: 1rem;
  font-size: 18px;
+ word-wrap: break-word;
 `;
 
 const NameTime = styled.div`

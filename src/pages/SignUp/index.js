@@ -6,15 +6,18 @@ import { Title } from "../../components/TitleModal";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { loginUser } from "../../actions/actions";
+import { loginUser, setPost } from "../../actions/actions";
+import { useGetPosts } from "../../hooks/api/usePost";
 
 export function SignUp() {
  const [name, setName] = useState("");
+ const {postData} = useGetPosts()
  const navigate = useNavigate();
  const dispatch = useDispatch();
 
  function submitUser() {
   dispatch(loginUser({user: name}));
+  dispatch(setPost(postData));
    navigate("/main");
  }
  return (

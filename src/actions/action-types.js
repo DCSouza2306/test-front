@@ -1,5 +1,6 @@
-const userActionsTypes = {
-    LOGIN: "user/login"
+const actionsTypes = {
+    LOGIN: "user/login",
+    SET_POSTS: "post/get"
 }
 
-export default userActionsTypes;
+export default actionsTypes;
