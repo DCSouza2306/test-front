@@ -3,7 +3,9 @@ import { Header } from "../../components/Header";
 import { CreatePost } from "../../components/CreatePost";
 import { Post } from "../../components/Post";
 
+
 export function Main(){
+   
     return(
         <MainSection>
             <MainBox>
