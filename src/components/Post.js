@@ -1,6 +1,10 @@
 import styled from "styled-components";
 import { HeaderPost } from "./HeaderPost";
 import { ContentPost } from "./ContentPost";
+import dayjs from "dayjs";
+var relativeTime = require('dayjs/plugin/relativeTime')
+
+dayjs.extend(relativeTime)
 
 export function Post({ title, user, date, content, id }) {
  
@@ -12,7 +16,7 @@ export function Post({ title, user, date, content, id }) {
    <ContentPost>
     <NameTime>
      <p className="name">@{user}</p>
-     <p>{date}</p>
+     <p>{dayjs(date).fromNow()}</p>
     </NameTime>
     <Content>{content}</Content>
    </ContentPost>
