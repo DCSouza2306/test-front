@@ -13,7 +13,7 @@ const InputLabelDiv = styled.div`
   font-size: 16px;
  }
  input, textarea {
-
+    font-family: "Roboto", sans-serif;
   height: ${props => props.height};
   border: 1px solid #777777;
   border-radius: 8px;

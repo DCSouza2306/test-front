@@ -2,11 +2,11 @@ import styled from "styled-components";
 import { HeaderPost } from "./HeaderPost";
 import { ContentPost } from "./ContentPost";
 
-export function Post({ title, user, date, content }) {
+export function Post({ title, user, date, content, id }) {
  
  return (
   <PostDiv>
-   <HeaderPost user={user}>
+   <HeaderPost user={user} id={id}>
     <p>{title}</p>
    </HeaderPost>
    <ContentPost>

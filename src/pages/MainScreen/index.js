@@ -5,6 +5,7 @@ import { Post } from "../../components/Post";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
+import { ModalDelete } from "../../components/ModalDelete";
 
 export function Main() {
  const navigate = useNavigate()
@@ -19,12 +20,14 @@ export function Main() {
 
  return (
   <MainSection>
+    <ModalDelete />
    <MainBox>
     <Header />
     <CreatePost />
     {currentPosts?.results?.map((p) => (
      <Post
       key={p.id}
+      id={p.id}
       title={p.title}
       user={p.username}
       date={p.created_datetime}
@@ -38,6 +41,7 @@ export function Main() {
 
 const MainSection = styled.section`
  background-color: #dddddd;
+ position: relative;
 `;
 
 const MainBox = styled.div`

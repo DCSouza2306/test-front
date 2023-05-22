@@ -10,7 +10,13 @@ async function createPost(body){
     return response.data;
 }
 
+async function deletePost(id){
+    const response = await api.delete(`/${id}/`);
+    return response.data;
+}
+
 export const postApi = {
  getPosts,
- createPost
+ createPost,
+ deletePost
 };

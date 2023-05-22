@@ -3,21 +3,19 @@ import styled from "styled-components";
 export function Modal({ isOpen, children }) {
  if (isOpen) {
   return (
-    <>
-    <Background/>
-     <ModalDiv>{children}</ModalDiv>;
-
-    </>
-
+   <Background>
+    <ModalDiv>{children}</ModalDiv>;
+   </Background>
   );
  }
 }
 const Background = styled.section`
-background-color: rgba(204,204,204, 0.8);
-z-index: 1000;
-width: 100vw;
-height: 100vh;
-`
+ background-color: rgba(204, 204, 204, 0.8);
+ z-index: 1000;
+ position: absolute;
+ width: 100vw;
+ height: 100%;
+`;
 
 const ModalDiv = styled.div`
  border-radius: 16px;
@@ -29,9 +27,8 @@ const ModalDiv = styled.div`
  padding: 1.5rem;
  display: flex;
  flex-direction: column;
- background-color: #FFFFFF;
+ background-color: #ffffff;
  h2 {
   font-weight: 700;
  }
- 
 `;

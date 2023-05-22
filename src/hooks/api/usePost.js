@@ -32,3 +32,17 @@ export function useCreatePost(){
         createPost
     }
 }
+
+export function useDeletePost(){
+    const {
+        loading: deletePostLoading,
+        error: deletePostError,
+        task: deletePost
+    } = useAsync(postApi.deletePost, false)
+
+    return {
+        deletePostLoading,
+        deletePostError,
+        deletePost
+    }
+}

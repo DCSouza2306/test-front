@@ -1,16 +1,22 @@
 import styled from "styled-components";
 import { MdDeleteForever } from "react-icons/md";
 import { FiEdit } from "react-icons/fi";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { handleModal, deletePost } from "../actions/actions";
 
-export function HeaderPost({ children, user }) {
+export function HeaderPost({ children, user, id }) {
  const { currentUser } = useSelector((rootReducer) => rootReducer.userReducer);
+ const dispatch = useDispatch();
 
+ async function deleteUserPost() {
+  dispatch(handleModal(true));
+  dispatch(deletePost({id}));
+ }
  return (
   <HeaderPostDiv display={user === currentUser.user}>
    {children}
    <div className="icons">
-    <MdDeleteForever className="icon-item" />
+    <MdDeleteForever className="icon-item" onClick={() => deleteUserPost()} />
     <FiEdit className="icon-item" />
    </div>
   </HeaderPostDiv>
