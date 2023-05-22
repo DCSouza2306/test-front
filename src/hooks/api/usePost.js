@@ -46,3 +46,19 @@ export function useDeletePost(){
         deletePost
     }
 }
+
+export function useUpdatePost(){
+    const {
+        data: updatePostData,
+        loading: updatePostLoading,
+        error: updatePostError,
+        task: updatePost
+    } = useAsync(postApi.updatePost, false)
+
+    return {
+        updatePostData,
+        updatePostLoading,
+        updatePostError,
+        updatePost
+    }
+}

@@ -20,11 +20,15 @@ export function handleModal(payload){
         payload
     }
 }
-
-
 export function deletePost(payload){
     return{
         type: actionsTypes.DELETE_POST,
+        payload,
+    }
+}
+export function updatePost(payload){
+    return{
+        type: actionsTypes.UPDATE_POST,
         payload,
     }
 }

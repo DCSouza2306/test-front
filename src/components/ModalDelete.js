@@ -10,13 +10,13 @@ export function ModalDelete() {
     const dispatch = useDispatch();
     const {deletePost} = useDeletePost();
     const {getPosts} = useGetPosts()
- const { displayModal } = useSelector(
+ const { modalType } = useSelector(
   (rootReducer) => rootReducer.modalReducer
  );
  const { deletedPost } = useSelector((rootReducer) => rootReducer.postsReducer);
 
  function closeModal(){
-    dispatch(handleModal(false))
+    dispatch(handleModal(null))
  }
 
  async function confirmDelete(){
@@ -24,7 +24,7 @@ export function ModalDelete() {
         await deletePost(deletedPost.id);
         const posts = await getPosts()
         dispatch(setPost(posts));
-        dispatch(handleModal(false))
+        dispatch(handleModal(null))
     } catch (error) {
         alert("deu ruim")
     }
@@ -32,9 +32,9 @@ export function ModalDelete() {
  }
  return (
   <ModalDeleteSec>
-   <Modal isOpen={displayModal}>
+   <Modal isOpen={modalType?.modalType === "delete"} width={"660px"}>
     <Title>Are you sure you want to delete this item?</Title>
-    <div className="buttons">
+    <div className="buttons-delete">
      <Button
       color={"#000000"}
       width={"111px"}
@@ -62,7 +62,7 @@ export function ModalDelete() {
 }
 
 const ModalDeleteSec = styled.section`
- .buttons {
+ .buttons-delete {
   display: flex;
   align-self: flex-end;
   justify-content: space-between;

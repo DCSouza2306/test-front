@@ -1,10 +1,10 @@
 import styled from "styled-components";
 
-export function Modal({ isOpen, children }) {
+export function Modal({ isOpen, children, width }) {
  if (isOpen) {
   return (
    <Background>
-    <ModalDiv>{children}</ModalDiv>;
+    <ModalDiv width={width} >{children}</ModalDiv>;
    </Background>
   );
  }
@@ -28,6 +28,7 @@ const ModalDiv = styled.div`
  display: flex;
  flex-direction: column;
  background-color: #ffffff;
+width: ${props => props.width};
  h2 {
   font-weight: 700;
  }

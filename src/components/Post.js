@@ -6,7 +6,7 @@ export function Post({ title, user, date, content, id }) {
  
  return (
   <PostDiv>
-   <HeaderPost user={user} id={id}>
+   <HeaderPost user={user} id={id} title={title} content={content}>
     <p>{title}</p>
    </HeaderPost>
    <ContentPost>

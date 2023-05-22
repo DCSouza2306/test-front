@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
-export function InputLabel({ children, height }) {
- return <InputLabelDiv height={height}>{children}</InputLabelDiv>;
+export function InputLabel({ children, height, width }) {
+ return <InputLabelDiv height={height} width={width} >{children}</InputLabelDiv>;
 }
 
 const InputLabelDiv = styled.div`

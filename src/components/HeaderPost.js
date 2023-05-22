@@ -2,22 +2,26 @@ import styled from "styled-components";
 import { MdDeleteForever } from "react-icons/md";
 import { FiEdit } from "react-icons/fi";
 import { useDispatch, useSelector } from "react-redux";
-import { handleModal, deletePost } from "../actions/actions";
+import { handleModal, deletePost, updatePost } from "../actions/actions";
 
-export function HeaderPost({ children, user, id }) {
+export function HeaderPost({ children, user, id, title, content }) {
  const { currentUser } = useSelector((rootReducer) => rootReducer.userReducer);
  const dispatch = useDispatch();
 
  async function deleteUserPost() {
-  dispatch(handleModal(true));
+  dispatch(handleModal({modalType: "delete"}));
   dispatch(deletePost({id}));
  }
+ async function updateUserPost() {
+  dispatch(handleModal({modalType: "update"}));
+  dispatch(updatePost({id, title, content}));
+ }
  return (
-  <HeaderPostDiv display={user === currentUser.user}>
+  <HeaderPostDiv showButtons={user === currentUser.user}>
    {children}
    <div className="icons">
     <MdDeleteForever className="icon-item" onClick={() => deleteUserPost()} />
-    <FiEdit className="icon-item" />
+    <FiEdit className="icon-item" onClick={() => updateUserPost()} />
    </div>
   </HeaderPostDiv>
  );
@@ -44,7 +48,7 @@ const HeaderPostDiv = styled.div`
   width: 80px;
   display: flex;
   justify-content: space-between;
-  visibility: ${(props) => (props.display ? "none" : "hidden")};
+  visibility: ${(props) => (props.showButtons ? "none" : "hidden")};
 
   .icon-item {
    cursor: pointer;

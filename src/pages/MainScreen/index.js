@@ -6,21 +6,26 @@ import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import { ModalDelete } from "../../components/ModalDelete";
+import { ModalEdit } from "../../components/ModalEdit";
 
 export function Main() {
- const navigate = useNavigate()
+ const navigate = useNavigate();
  const { currentPosts } = useSelector(
   (rootReducer) => rootReducer.postsReducer
  );
 
- useEffect(() => {if(currentPosts === null){
-  navigate("/");
- }}, [])
- 
+ const { modalType } = useSelector((rootReducer) => rootReducer.modalReducer);
+ useEffect(() => {
+  if (currentPosts === null) {
+   navigate("/");
+  }
+ }, []);
 
  return (
   <MainSection>
-    <ModalDelete />
+   <ModalEdit />
+   <ModalDelete />
+
    <MainBox>
     <Header />
     <CreatePost />

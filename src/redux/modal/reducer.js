@@ -1,7 +1,7 @@
 import actionsTypes from "../../actions/action-types";
 
 const initialState = {
- currentPosts: false,
+ modalType: null,
 };
 
 export function modalReducer(state = initialState, action) {
@@ -9,7 +9,7 @@ export function modalReducer(state = initialState, action) {
   case actionsTypes.HANDLE_MODAL:
    return {
     ...state,
-    displayModal: action.payload,
+    modalType: action.payload,
    };
   default:
    return state;
